@@ -40,6 +40,6 @@ Here are steps to try:
 2. If all the policies are Undefined, run “Set-ExecutionPolicy -Scope CurrentUser RemoteSigned”
 3. Now right click the properties of the poswatch.ps1 file. There may be settings related to it being blocked, as in this images circled area:
 ![/example.jpg](https://github.com/BAMcSH/DeadlockMovementCfg/blob/main/example.png)
-4. If it is blocked, then unblock it here and Apply. The script should now run.
+5. If it is blocked, then unblock it here and Apply. The script should now run.
 
 Alternatively, you can set your execution policy to “Unrestricted”, which will allow scripts downloaded from the internet to run without being unblocked first, and see if it works that way. I wouldn’t recommend leaving this setting this way.
