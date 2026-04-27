@@ -1,18 +1,27 @@
 #!/bin/bash
 
-dldir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+pat="setpos_exact ([[:space:]0-9.-]*);"
+init=0
+
+dldir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 log="${dldir}/game/citadel/console.log"
 pos="${dldir}/game/citadel/cfg/lastpos.cfg"
-pat='setpos_exact ([[:space:]0-9.-]*);'
+echo $pos
 
-[[ -f "$pos" ]] || echo "setpos 0 0 0" > "$pos"
+if [[ ! -f "$log" ]]; then
+    echo "Error: File not found - $log"
+    exit 1
+fi
 
-trap 'kill $(jobs -p) 2>/dev/null' EXIT
+tail -f "$log" | while IFS= read -r line; do
+    if [[ ! $init ]]; then
+		init=1
+	else
+		# Check the regex
+		if [[ $line =~ $pat ]]; then
+			echo "setpos ${BASH_REMATCH[1]}" > "${pos}"
+		fi
+	fi
+done
 
-# -n 0: skip existing lines, -F: follow by name (handles file recreation by Proton)
-while IFS= read -r line; do
-    if [[ $line =~ $pat ]]; then
-        echo "setpos ${BASH_REMATCH[1]}" > "$pos"
-    fi
-    [[ $line == *"Source2Shutdown"* ]] && break
-done < <(tail -n 0 -F "$log" 2>/dev/null)
+read -p "Press Enter to continue..."

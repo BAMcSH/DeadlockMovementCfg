@@ -34,11 +34,11 @@ If you use the .bat option, you may need to re-enable the console in your Deadlo
 
 ### Linux
 
-Place poswatch.sh and startup.sh in your Deadlock folder (typically `~/.steam/steam/steamapps/common/Deadlock`).
+Place poswatch_linux.sh and startup.sh in your Deadlock folder (typically `~/.steam/steam/steamapps/common/Deadlock`).
 
 Make the scripts executable:
 ```
-chmod +x poswatch.sh startup.sh
+chmod +x poswatch_linux.sh startup.sh
 ```
 
 Then set your Deadlock Steam launch options to:
@@ -47,7 +47,7 @@ Then set your Deadlock Steam launch options to:
 ```
 (quotes included, replace `/path/to/Deadlock` with your actual Deadlock folder path)
 
-Alternatively, add `-condebug` to your launch options and run `./poswatch.sh` manually from the Deadlock folder.
+Alternatively, add `-condebug` to your launch options and run `./poswatch_linux.sh` manually from the Deadlock folder.
 
 ## Troubleshooting
 
@@ -69,6 +69,6 @@ Alternatively, you can set your execution policy to "Unrestricted", which will a
 
 If position save/restore does not work:
 
-1. Make sure the scripts are executable: `chmod +x poswatch.sh startup.sh`
+1. Make sure the scripts are executable: `chmod +x poswatch_linux.sh startup.sh`
 2. Verify that `console.log` is being created in `Deadlock/game/citadel/` (requires `-condebug` launch option)
 3. Try running `./poswatch.sh` manually from the Deadlock folder and saving a position in-game to see if `lastpos.cfg` gets updated
