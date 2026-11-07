@@ -9,16 +9,16 @@ Extract the contents of the provided release zip files to your deadlock folder.
 Navigate to game/citadel/cfg and open movetool.cfg to change binds.
 
 Default binds:
-H - save position
-T - load position
-F8 - Start testing map
-F9 - Swap teams
-F10 - Quick Start hotkey once explore is loaded in
-F11 - cl_showpos cycling
-F12 - Toggle HUD on and off
-U - Noclip
-M - Lock camera pos
-N - Orbital camera toggle
+H - save position  
+T - load position  
+F8 - Start testing map  
+F9 - Swap teams  
+F10 - Quick Start hotkey once explore is loaded in  
+F11 - cl_showpos cycling  
+F12 - Toggle HUD on and off  
+U - Noclip  
+M - Lock camera pos  
+N - Orbital camera toggle  
 
 Type leifhelp in the console to see my compiled lists of map positions.
 Enter the names of any list to load them.
