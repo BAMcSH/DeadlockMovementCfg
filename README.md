@@ -8,7 +8,7 @@ Cfgs and scripts to help learn Deadlock movement with features like hotkey posit
 Extract the contents of the provided release zip files to your deadlock folder.
 Navigate to game/citadel/cfg and open movetool.cfg to change binds.
 
-Default binds:
+Default binds:  
 H - save position  
 T - load position  
 F8 - Start testing map  
