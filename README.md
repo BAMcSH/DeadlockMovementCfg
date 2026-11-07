@@ -62,6 +62,18 @@ Then set your Deadlock Steam launch options to:
 
 Alternatively, add `-condebug` to your launch options and run `./poswatch_linux.sh` manually from the Deadlock folder.
 
+## Making Lists
+
+In the Deadlock console, while the powershell script is running (not the lite version), there are commands that can be sent with
+```
+echoln command
+```
+1) `echoln newlist name` - Generate a new list, this creates a new .cfg file in your cfg folder of the same name, and the name is also what you'll type to load the list.  
+2) `echoln setlist name` - Set a list as the target for new spots without deleting existing spots like newlist would.  
+3) `echoln newspot hint` - Create a spot from the character's current position, which is appended to the active list. Leave the console open after using newspot, the script will be running two commands in it.
+
+A created list will be appended to the leifhelp alias in the movetool.cfg file so its name will show up there, and typing its name in the console will load it for the hotkeys.
+
 ## Troubleshooting
 
 ### Windows
