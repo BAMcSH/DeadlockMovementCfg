@@ -8,8 +8,6 @@ if [[ $# -eq 0 ]]; then
     exit 1
 fi
 
-"$@" -dev -condebug -fullscreen -no_environment_maps -high -novid \
-    -softparticlesdefaultoff +mat_disable_fancy_blending -m_rawinput 1 \
-    +@panorama_min_comp_layer_cache_cost_TURNED_OFF 256 &
+"$@" -dev -condebug &
 
-"${SCRIPT_DIR}/poswatch_linux.sh"
+"${SCRIPT_DIR}/MoveTool_linux.sh"

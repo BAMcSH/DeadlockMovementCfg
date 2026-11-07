@@ -26,9 +26,10 @@ Enter the names of any list to load them.
 Place poswatch.ps1 and startup.bat in your Deadlock folder.
 
 Either add "-condebug" to your Deadlock launch options and start the powershell script manually, or replace your Deadlock launch options with:
+```
 "startup.bat" %COMMAND%
-(quotes included)
-You can open startup.bat and place launch options for deadlock behind deadlock.exe if needed.
+```
+You can open startup.bat and place launch options for deadlock behind deadlock.exe if needed. "-condebug" must stay for functionality.
 
 If you use the .bat option, you may need to re-enable the console in your Deadlock settings.
 
