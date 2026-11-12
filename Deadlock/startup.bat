@@ -1,3 +1,3 @@
-start game/bin/win64/deadlock.exe -dev -condebug -dx11 -fullscreen
+start game/bin/win64/deadlock.exe -condebug
 
 powershell.exe -ExecutionPolicy Bypass -File MoveTool.ps1

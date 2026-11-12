@@ -1,8 +1,10 @@
 changelog
 
+2.1.0
 The hint is now optional and not required to make a spot
 Removed fullscreen, dx11, and dev from the default startup options in the batch file
 The script now scans the cfg directory and rebuilds the exec section in movetool.cfg when starting
 	Just placing a new list in the cfg directory it will now be autodetected so no manual editing is required
 Added a script to pack releases
+startup.bat is now excluded from live updating from my own deadlock folder so I can keep my startup options separate
 The readme is now packed in the release zip
