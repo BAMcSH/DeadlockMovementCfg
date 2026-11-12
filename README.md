@@ -51,7 +51,7 @@ Place MoveTool_linux.sh and startup.sh in your Deadlock folder (typically `~/.st
 
 Make the scripts executable:
 ```
-chmod +x poswatch_linux.sh startup.sh
+chmod +x MoveTool_linux.sh startup.sh
 ```
 
 Then set your Deadlock Steam launch options to:
@@ -60,7 +60,7 @@ Then set your Deadlock Steam launch options to:
 ```
 (quotes included, replace `/path/to/Deadlock` with your actual Deadlock folder path)
 
-Alternatively, add `-condebug` to your launch options and run `./poswatch_linux.sh` manually from the Deadlock folder.
+Alternatively, add `-condebug` to your launch options and run `./MoveTool_linux.sh` manually from the Deadlock folder.
 
 ## Making Lists
 
