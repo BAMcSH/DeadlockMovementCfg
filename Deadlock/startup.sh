@@ -10,4 +10,4 @@ fi
 
 "$@" -dev -condebug &
 
-"${SCRIPT_DIR}/MoveTool_linux.sh"
+bash "${SCRIPT_DIR}/MoveTool_linux.sh"
