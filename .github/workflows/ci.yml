@@ -1,0 +1,47 @@
+name: linux-scripts
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate-linux-scripts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify .gitattributes forces LF
+        run: |
+          test -f .gitattributes
+          grep -Eq '^\*\.sh[[:space:]]+text[[:space:]]+eol=lf' .gitattributes
+
+      - name: Verify shell scripts are LF in git
+        run: |
+          [ "$(git ls-files --eol -- 'Deadlock/*.sh' | awk '{print $1}' | sort -u)" = "i/lf" ]
+          [ "$(git ls-files --eol -- 'Deadlock/*.sh' | awk '{print $2}' | sort -u)" = "w/lf" ]
+
+      - name: Verify no CR bytes
+        run: |
+          if git grep -nP '\r' -- 'Deadlock/*.sh'; then
+            echo 'CR bytes found in shell scripts' >&2
+            exit 1
+          fi
+
+      - name: Verify shebang
+        run: |
+          for f in Deadlock/startup.sh Deadlock/MoveTool_linux.sh; do
+            first="$(head -n 1 "$f")"
+            [ "$first" = "#!/bin/bash" ] || { echo "Bad shebang in $f"; exit 1; }
+          done
+
+      - name: Verify exec bits
+        run: |
+          modes="$(git ls-files --stage -- Deadlock/startup.sh Deadlock/MoveTool_linux.sh |
+            awk '{print $1}' | sort -u)"
+          if [ "$modes" != "100755" ]; then
+            echo "Expected 100755 for both shell scripts, got: $modes" >&2
+            exit 1
+          fi
+
+      - name: Syntax check
+        run: bash -n Deadlock/startup.sh Deadlock/MoveTool_linux.sh
